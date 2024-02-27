@@ -6,7 +6,6 @@ use ieee.std_logic_textio.all;
 use ieee.math_real.all;
 
 library work;
---use work.file_io_pckg.all;
 use work.type_definitions_pckg.all;
 use work.function_pckg.all;
 
@@ -21,7 +20,6 @@ end tb_harvard;
 architecture behave of tb_harvard is
 
   constant clk_period_ns              : time := 10 ns;
-  --
   ------------------------------------------------------------------------------------------------
   -- Signal Area
   ------------------------------------------------------------------------------------------------
@@ -37,6 +35,9 @@ architecture behave of tb_harvard is
   signal sl_prog_done_out             : std_logic;
   signal sl_tb_data_out               : std_logic_vector(16-1 downto 0);
 
+------------------------------------------------------------------------------------------------
+-- Process Area
+------------------------------------------------------------------------------------------------
 begin
   -- Clock Process
   process
@@ -51,8 +52,6 @@ begin
   -- reset stuff
   sl_rst_in                 <= '1';
   sl_tb_vld_in              <= '0';
-  --sv_tb_data_a_in           <= (others => '0');
-  --sv_tb_data_b_in           <= (others => '0');
   sv_tb_write_ram_a_in      <= (others => '0');
   sv_tb_write_ram_b_in      <= (others => '0');
   wait for 10 us;
@@ -70,41 +69,12 @@ begin
       wait until (sl_prog_done_out = '1');
     end loop;
   end loop;
-
-
---    -- reset stuff
---    sl_rst_in               <= '1';
---    sl_tb_vld_in            <= '0';
---    sv_tb_data_in           <= (others => '0');
---    wait for 10 us;
---    wait until (rising_edge(sl_clk_in));
---    sl_rst_in               <= '0';
---    wait until (rising_edge(sl_clk_in));
---
---
---    for m in 0 to 255 loop
---      sl_tb_vld_in          <= '1';
---      --sv_tb_data_in       <= "00111010";
---      sv_tb_data_in         <= std_logic_vector(to_unsigned(m, sv_tb_data_in'length));
---      wait until (rising_edge(sl_clk_in));
---      sl_tb_vld_in          <= '0';
---      wait until (rising_edge(sl_tb_rdy_out));
---    end loop;
---
---    for n in 0 to 255 loop
---      sl_tb_vld_in          <= '1';
---      --sv_tb_data_in       <= "00111010";
---      sv_tb_data_in         <= std_logic_vector(to_unsigned(n, sv_tb_data_in'length));
---      wait until (rising_edge(sl_clk_in));
---      sl_tb_vld_in          <= '0';
---      wait until (rising_edge(sl_tb_rdy_out));
---    end loop;
-
-    wait;
+  wait;
   end process;
-
--- Instance Area
-
+                                                           
+  ------------------------------------------------------------------------------------------------
+  -- Instance Area
+  ------------------------------------------------------------------------------------------------
   harvard_inst : entity work.harvard
   generic map(
     gi_width              => gi_width,
