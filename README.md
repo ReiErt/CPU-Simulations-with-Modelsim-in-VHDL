@@ -3,7 +3,7 @@ All work is my own. Any work that is not mine mentions the source:
 
 The following lines of sequential code is the subject of my paper on CPU architecture.
 
-(1) v <= a + b;
+(1) v <= a + b;\n
 (2) w <= b * 2;
 (3) x <= v - w;
 (4) y <= v + w;
