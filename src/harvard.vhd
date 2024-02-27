@@ -2,12 +2,13 @@
 --  Title      : harvard
 --  Project    : Library
 --  File       : harvard.vhd
+-- Author      : Ertman
 -- -----------------------------------------------------------------------------------------------
 
 -- -----------------------------------------------------------------------------------------------
 -- Description:
 -- -----------------------------------------------------------------------------------------------
--- This file does 5 actions. -> 3 addition and 2 multiplications
+
 
 library ieee;
 use ieee.std_logic_1164.ALL;
@@ -188,12 +189,7 @@ begin
           sv_destination_addr   <= sv_instruction_in(11 downto 8);
           sv_data_a_in          <= ram_data(ti_u(sv_instruction_in(7 downto 4)));
           sv_data_b_in          <= ram_data(ti_u(sv_instruction_in(3 downto 0)));
-          --
-          --sv_dereference_A      <= sv_memcode_in(7 downto 4); -- first operand
-          --sv_dereference_B      <= sv_memcode_in(3 downto 0); -- second operand
-          --sv_data_a_in          <= ram_data(ti_u(sv_dereference_A))(8-1 downto 0);
-          --sv_data_b_in          <= ram_data(ti_u(sv_dereference_B))(8-1 downto 0);
-          --
+
           sl_delay1             <= '1';
           sl_delay2             <= sl_delay1;
           sl_delay3             <= sl_delay2;
