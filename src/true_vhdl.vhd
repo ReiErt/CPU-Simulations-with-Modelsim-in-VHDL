@@ -2,12 +2,12 @@
 --  Title      : true_vhdl_paralellism
 --  Project    : Library
 --  File       : true_vhdl.vhd
+-- Author      : Ertman
 -- -----------------------------------------------------------------------------------------------
 
 -- -----------------------------------------------------------------------------------------------
 -- Description:
 -- -----------------------------------------------------------------------------------------------
--- This file does 5 actions. -> 3 addition and 2 multiplications
 
 library ieee;
 use ieee.std_logic_1164.ALL;
