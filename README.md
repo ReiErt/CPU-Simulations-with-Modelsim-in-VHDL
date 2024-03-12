@@ -1,6 +1,17 @@
 # VHDL-CPU
-All work is my own. Any work that is not mine mentions the source:  
-  
+All work is my own. Any work that is not mine mentions the source.
+
+# Instruction Cycle
+A CPU's instruction cycle is virtually the same for any processor:
+(a) Code fetch    # register data
+(b) Decode        # interpret data 
+(c) Operand fetch / data fetch # load ALU register for computation
+(d) ALU            # compute arithmetic or logical expression
+(e) Store          # save
+(f) Increment program counter  # prepare for next instruction
+
+To improve through-put, one assembly instruction does not block the entire CPU until finished. Instead of such a bottleneck, the instruction cycle is pipelined, improving performance.
+
 The following lines of sequential code is the subject of my paper on CPU architecture.  
 
 (1) v <= a + b;  
