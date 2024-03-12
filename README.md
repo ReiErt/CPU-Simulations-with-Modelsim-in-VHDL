@@ -12,6 +12,8 @@ A CPU's instruction cycle is virtually the same for any processor:
 
 To improve through-put, one assembly instruction does not block the entire CPU until finished. Instead of such a bottleneck, the instruction cycle is pipelined, improving performance.
 
+# Instructions Under Test
+
 The following lines of sequential code is the subject of my paper on CPU architecture.  
 
 (1) v <= a + b;  
@@ -23,7 +25,9 @@ The following lines of sequential code is the subject of my paper on CPU archite
 Harvard and Von-Neumann CPU architectures, featuring a single core processor, are simulated via Modelsim in VHDL while running the above lines of code. In addition, an FPGA also runs the above lines.  
   
 Furthermore, the instruction cycle for all three types are successfully pipelined, and the performance of each CPU architecture is analysed and measured.  
-  
+
+# Structure of OP-Codes
+
 Instructions in the RAM are formatted as follows:  
   4 bit opcode // 4 bit memory destination address  // 4 bit operand1 location in memory  // 4 bit operand 2 location in memory  
   (1) The first 4 bits define the logical or arithmetic action that the ALU shall execute.  
